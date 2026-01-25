@@ -1,3 +1,4 @@
+import allure
 from selenium.common import StaleElementReferenceException
 from selenium.webdriver.ie.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions
@@ -55,6 +56,7 @@ class MainPage:
         (WebDriverWait(self.driver, 3)
          .until(expected_conditions.visibility_of_element_located(Locators.BUTTON_LOGOUT)).click())
 
+    @allure.step("Нажать 'Разместить объявление'")
     def click_create_listing(self, retries=5):
         for attempt in range(retries):
             try:

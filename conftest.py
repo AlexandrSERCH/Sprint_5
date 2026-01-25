@@ -8,6 +8,7 @@ from pages.login_form import LoginForm
 from pages.main_page import MainPage
 from pages.profile_page import ProfilePage
 from pages.register_form import ResisterForm
+from utils.attach import attach_full_page_screenshot, attach_screenshot
 
 base_url = "https://qa-desk.stand.praktikum-services.ru/"
 
@@ -18,6 +19,9 @@ def driver():
     driver.get(base_url)
 
     yield driver
+
+    attach_screenshot(driver)
+    attach_full_page_screenshot(driver)
 
     driver.quit()
 

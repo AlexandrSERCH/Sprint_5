@@ -1,11 +1,29 @@
 import random
 
+import allure
 from faker import Faker
 import faker_commerce
 
 
 class TestCreateListing:
 
+    @allure.epic("Веб-приложение «Доска объявлений»")
+    @allure.feature("Управление объявлениями")
+    @allure.story("Создание объявления")
+
+    @allure.parent_suite("Web UI")
+    @allure.suite("Авторизованный пользователь")
+    @allure.sub_suite("Создание объявления")
+
+    @allure.tag("smoke", "UI")
+    @allure.label("owner", "Alexandr")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title("Создание объявления авторизованным пользователем")
+    @allure.description(
+        "Проверка успешного создания объявления под авторизованным пользователем. "
+        "После создания выполняется редирект на страницу списка объявлений."
+    )
+    @allure.testcase("TASK-1234")
     def test_create_listing_by_unauthorized_user(self, main_page, create_listing_alert_form):
         main_page.click_create_listing()
         actual_text_in_title_create_listing_form = create_listing_alert_form.get_text_from_title()
