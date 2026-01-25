@@ -12,10 +12,7 @@ class TestRegisterUser:
 
         main_page.click_login_button()
         login_form.click_button_go_to_register()
-        register_form.enter_email(login)
-        register_form.enter_password(password)
-        register_form.enter_password_submit(password)
-        register_form.click_register_button()
+        register_form.register_user(login, password)
 
         actual_username_in_header = main_page.get_username_from_header()
 
